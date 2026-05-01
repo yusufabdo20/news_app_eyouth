@@ -5,8 +5,14 @@ import 'package:news_app_eyouth/views/news_details_screen.dart';
 
 class NewsCardWidget extends StatelessWidget {
   const NewsCardWidget({
-    super.key,
+    required this.imageUrl , 
+    required this.title , 
+    required this.description , 
+
   });
+final String imageUrl ; 
+final String title ; 
+final String description ; 
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +27,9 @@ class NewsCardWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children:  [
-        Image.network("https://burst.shopifycdn.com/photos/digital-music-product.jpg?width=1000&format=pjpg&exif=0&iptc=0"), 
-        Text("Title", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold , color: Colors.white),) , 
-        Text("Description" , style: TextStyle(fontSize: 16, color: Colors.grey),), 
+        Image.network(imageUrl), 
+        Text(title, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold , color: Colors.white),) , 
+        Text(description , style: TextStyle(fontSize: 16, color: Colors.grey),), 
         TextButton(onPressed: (){
              AppUtills.pushToScreen(context, NewsDetailsScreen());
         }, 
