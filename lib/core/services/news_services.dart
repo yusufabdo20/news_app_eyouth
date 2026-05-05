@@ -9,7 +9,8 @@ class NewsServices {
   NewsServices(this.dio) ;
  Future<List<ArticleModel>>getTopHeadLinesCategoryNews({required String category}) async{
     try{
-        Response response = await  dio.get("${AppConstants.baseUrl}/top-headlines?category=$category&language=ar&apiKey=${AppConstants.apiKey}");
+      // https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6cffea7451b4485a83f7f561556f5633
+        Response response = await  dio.get("${AppConstants.baseUrl}/top-headlines?category=$category&apiKey=${AppConstants.apiKey}");
         Map<String , dynamic > jsonData = response.data;
         List articles = jsonData['articles'] ?? [] ; 
        List <ArticleModel>  articleModels =[]  ;
@@ -18,7 +19,8 @@ class NewsServices {
           articleModels.add(article);
        } 
         return articleModels ;
-    }catch(error){
+    } 
+    catch(error){
         print(error.toString()); 
         return [];
     }

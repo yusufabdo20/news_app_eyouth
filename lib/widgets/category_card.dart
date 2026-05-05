@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:news_app_eyouth/core/app_utills.dart';
+import 'package:news_app_eyouth/views/category_news_screen.dart';
 import 'package:news_app_eyouth/views/news_details_screen.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -14,7 +15,7 @@ final String catTitle ;
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // AppUtills.pushToScreen(context, NewsDetailsScreen());
+        AppUtills.pushToScreen(context, CategoryNewsScreen(category: catTitle.toLowerCase(),));
       },
       child: Container(
         height: 60,

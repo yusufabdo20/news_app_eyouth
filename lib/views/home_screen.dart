@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_eyouth/core/app_utills.dart';
+import 'package:news_app_eyouth/views/search_screen.dart';
 import 'package:news_app_eyouth/widgets/category_card.dart';
 import 'package:news_app_eyouth/widgets/custom_listview_news_items_builder.dart';
 import 'package:news_app_eyouth/widgets/news_card_widget.dart';
@@ -11,6 +13,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Screen'),
+        actions: [IconButton(onPressed: (){
+          AppUtills.pushToScreen(context, SearchScreen()) ;
+        }, icon: Icon(Icons.search))],
       ),
       body:  Center(
         child: Padding(
@@ -29,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-              CustomListViewNewsItemBuilder(),
+              CustomListViewNewsItemBuilder(category: "",searchQuery: "",),
             ],
           ),
         ),
