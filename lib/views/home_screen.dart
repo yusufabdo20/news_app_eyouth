@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_eyouth/core/app_utills.dart';
-import 'package:news_app_eyouth/views/news_details_screen.dart';
 import 'package:news_app_eyouth/widgets/category_card.dart';
 import 'package:news_app_eyouth/widgets/custom_listview_news_items_builder.dart';
 import 'package:news_app_eyouth/widgets/news_card_widget.dart';
@@ -23,11 +21,11 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  CategoryCard(),
-                  CategoryCard(),
-                  CategoryCard(),
-                  CategoryCard(),
-                  CategoryCard(),
+                  CategoryCard( catTitle: "Business",),
+                  CategoryCard( catTitle: "Entertainment",),
+                  CategoryCard( catTitle: "General",),
+                  CategoryCard( catTitle: "Health",),
+                  CategoryCard( catTitle: "Science",),
                 ],
               ),
             ),

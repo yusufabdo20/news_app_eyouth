@@ -7,13 +7,14 @@ import 'package:news_app_eyouth/views/news_details_screen.dart';
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
     super.key,
+    required this.catTitle
   });
-
+final String catTitle ; 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        AppUtills.pushToScreen(context, NewsDetailsScreen());
+        // AppUtills.pushToScreen(context, NewsDetailsScreen());
       },
       child: Container(
         height: 60,
@@ -27,7 +28,7 @@ class CategoryCard extends StatelessWidget {
           )
         ), 
         child: Center(
-          child: Text("News App" , style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold , color: Colors.white),),
+          child: Text(catTitle , style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold , color: Colors.white),),
         ),
       ),
     );

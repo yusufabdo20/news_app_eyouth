@@ -15,6 +15,7 @@ class CustomListViewNewsItemBuilder extends StatefulWidget {
 
 class _CustomListViewNewsItemBuilderState extends State<CustomListViewNewsItemBuilder> {
   var futureResponse ; 
+  // List articles = [] ;
   List<ArticleModel> articles =[] ;
   @override
   void initState() {
@@ -23,20 +24,18 @@ class _CustomListViewNewsItemBuilderState extends State<CustomListViewNewsItemBu
   }
   @override
   Widget build(BuildContext context) {
+
     return FutureBuilder<List<ArticleModel>>(
       future: futureResponse ,
       builder: (context, snapshot) {
-
         if(snapshot.hasData){
           articles = snapshot.data ??[] ;
-          return Expanded(
+        return Expanded(
         child: ListView.builder(
-          itemCount: articles.length,
+          itemCount:articles.length ,
           itemBuilder: (context, index) {
             return  NewsCardWidget(
-              imageUrl:articles[index].image ?? "https://burst.shopifycdn.com/photos/digital-music-product.jpg?width=1000&format=pjpg&exif=0&iptc=0",
-              title: articles[index].title??"NONE",
-              description:articles[index].desc ?? "NONE",
+             article: articles[index],
             );
           },
         ),
